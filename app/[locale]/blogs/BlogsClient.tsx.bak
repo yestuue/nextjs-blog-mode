@@ -1,0 +1,156 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import { useTranslations, useLocale } from "next-intl";
+import "./blogs.css";
+
+interface Post {
+  sys: {
+    id: string;
+  };
+  fields: {
+    title: string;
+    slug: string;
+    content: any; // Rich text content
+    featuredImage?: {
+      fields: {
+        file: {
+          url: string;
+        };
+      };
+    };
+    publishedDate: string;
+    author: {
+      fields: {
+        name: string;
+      };
+    };
+  };
+}
+
+interface Props {
+  posts: Post[];
+}
+
+export default function BlogsClient({ posts }: Props) {
+    const t = useTranslations("Blogs");
+    const locale = useLocale();
+    return (
+        <div className="page-blogs">
+            <div className="header-image"></div>
+            <div className="container mx-auto px-5 learn-blog-container">
+                <div className="crypto">
+                    <div className="crypto-text">
+                        <h1>{t("getFamiliar")}</h1>
+                        <h1>{t("worldCrypto")}</h1>
+                        <span>{t("cryptoDesc")}</span>
+                    </div>
+                    <div className="crypto-image">
+                        <Image 
+                            src="/assets/wireframe-img-1-e1708013680578.png" 
+                            alt="Crypto Learning" 
+                            width={500}
+                            height={300}
+                            className="object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="blogs">
+                {posts.length === 0 ? (
+                    <div className="text-center py-10">
+                        <p className="text-gray-600">No blog posts found.</p>
+                    </div>
+                ) : (
+                    <div className="blog-grid">
+                        {posts.map((post) => (
+                            <div key={post.sys.id}>
+                                <Link href={`/${locale}/blogs/${post.fields.slug}`}>
+                                    <div className="card group hover:shadow-lg transition-shadow duration-200">
+                                        {post.fields.featuredImage && (
+                                            <Image
+                                                src={`https:${post.fields.featuredImage.fields.file.url}`}
+                                                alt={post.fields.title}
+                                                width={400}
+                                                height={225}
+                                                className="object-cover w-full h-48 rounded-t"
+                                            />
+                                        )}
+                                        <div className="p-4">
+                                            <h3 className="text-xl font-semibold mb-2">{post.fields.title}</h3>
+                                            <span className="text-gray-600 text-sm">
+                                                {documentToPlainTextString(post.fields.content).substring(0, 150)}...
+                                            </span>
+                                            <div className="mt-4 flex justify-between items-center">
+                                                <span className="text-sm text-gray-500">
+                                                    By {post.fields.author.fields.name}
+                                                </span>
+                                                <p className="text-primary hover:text-primary-dark">
+                                                    {t("readMore")}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            <div className="black-bar">
+                <div className="black-bar-left">
+                    <span>{t("readyLine1")}</span>
+                    <span>{t("readyLine2")}</span>
+                    <span>{t("readyLine3")}</span>
+                    <span>{t("readyLine4")}</span>
+                    <span>{t("readyLine5")}</span>
+                </div>
+                <div className="black-bar-right">
+                    <span>{t("consultLine1")}</span>
+                    <span>{t("consultLine2")}</span>
+                    <div className="button">
+                        <a
+                            href="#"
+                            className="mx-3 bg-black hover:bg-white hover:text-black border border-white text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors lg:mb-0"
+                        >
+                            {t("requestConsultation")}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="social-media">
+                <div className="social-media-text">
+                    <span>{t("socialMediaPosts")}</span>
+                    <p>{t("socialMediaDesc")}</p>
+                </div>
+                <div className="social-media-image"></div>
+            </div>
+
+            <div className="newsletter">
+                <div className="newsletter-text">{t("joinNewsletter")}</div>
+                <form className="newsletter-form" method="post" name="Newsletter Form">
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder={t("fullName")}
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder={t("email")}
+                    />
+                    <button className="elementor-button elementor-size-md" type="submit">
+                        <span className="elementor-button-content-wrapper">
+                            <span className="elementor-button-text">{t("submit")}</span>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+}

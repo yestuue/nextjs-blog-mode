@@ -1,0 +1,370 @@
+.about-image {
+    width: 100%;
+    height: 800px;
+    background-image: url("/assets/about-hero-bg.jpg");
+    background-repeat: no-repeat;
+}
+
+.about-image-content {
+    padding: 0 15vw 0 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 15%;
+}
+
+.about-image-content>h2 {
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+}
+
+.about-image-content>span {
+    color: white;
+    margin-top: 10px;
+}
+
+.community {
+    padding: 2% 15vw 0 15vw;
+    height: 45vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.community-title {
+    width: 50%;
+}
+
+.about-our-mission {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.about-our-mission>svg {
+    width: 15px;
+}
+
+.community-title>.title {
+    font-size: 4vh;
+    font-weight: 700;
+}
+
+.community-content {
+    width: 50%;
+}
+
+.community-content>h2 {
+    font-size: 15px;
+    color: #454f5e;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.what-to-expact {
+    height: 75vh;
+    width: 100%;
+    background-color: #0d0614;
+}
+
+.learn-connect {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: white;
+    font-size: 17px;
+}
+
+.learn-connect>svg {
+    width: 17px;
+    fill: white;
+}
+
+.what-to-expact {
+    padding: 6% 15vw 0 15vw;
+}
+
+.what-to-expact>h2 {
+    font-size: 45px;
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.learn-boxs {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 80px;
+
+}
+
+.learn-box {
+    width: 400px;
+    height: 250px;
+    background-color: #f2f0fe;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.learn-box>h2 {
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.learn-box>span {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #454f5e;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2-margin {
+    padding-bottom: 40px;
+}
+
+.learn-box>svg {
+    width: 50px;
+}
+
+.block-chain {
+    height: 65vh;
+    background-color: #1B252F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.red-box {
+    width: 300px;
+    height: 15px;
+    background-color: red;
+
+}
+
+.block-chain-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 7%;
+    gap: 5px;
+}
+
+.block-chain-content>h2 {
+    font-size: 64px;
+    color: yellow;
+    font-weight: bold;
+    line-height: 64px;
+}
+
+.block-chain-content>h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 8px;
+}
+
+.block-chain-content>h4 {
+    color: white;
+}
+
+.bridge {
+    height: 100vh;
+    padding: 6% 10vw 0 10vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.bridge-image {
+    width: 600px;
+    height: 700px;
+    background-size: 100% 100%;
+    border-radius: 25px;
+    background-image: url("/assets/mission-vission.jpg");
+    background-repeat: no-repeat;
+}
+
+.bridge-content {
+    width: 600px;
+    height: 100%;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.the-goal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.the-goal>svg {
+    width: 15px;
+}
+
+.the-goal>h2 {
+    font-size: 15px;
+}
+
+.bridge-content>.title>h2 {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.bridge-content>.desc>span {
+    color: #454f5e;
+    line-height: 25px;
+}
+
+.bridge-content>hr {
+    color: black;
+}
+
+.content-item {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #454f5e;
+    align-items: start;
+}
+
+.content-item>img {
+    width: 15px;
+    margin-top: 4px;
+}
+
+.bridge-content>span {
+    color: #454f5e;
+}
+
+.our-team {
+    background-color: #f2f0fe;
+    height: 110vh;
+    width: 100%;
+}
+
+.our-team-content {
+    padding: 3% 15vw 0 15vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.the-team {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.the-team>svg {
+    width: 15px;
+}
+
+.the-team>h2 {
+    font-size: 15px;
+}
+
+.our-team-content>h2 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.our-team-content>span {
+    color: #454f5e;
+    align-self: start;
+}
+
+.italy {
+    font-style: italic;
+}
+
+.team-image {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: start;
+    align-content: start;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.team-image>img {
+    border-radius: 30px;
+}
+
+.member>svg {
+    width: 20px;
+}
+
+.member>span {
+    color: #454f5e;
+}
+
+.member>h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.involvement {
+    padding: 6% 15vw 0 15vw;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.invol-image {
+    width: 50%;
+}
+
+.invol-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 100px;
+}
+
+.invol-image>img {
+    border-radius: 25px;
+    margin-top: 55px;
+}
+
+.giving-back {
+    display: flex;
+    flex-direction: row;
+    font-size: 17px;
+    gap: 5px;
+}
+
+.giving-back>svg {
+    width: 15px;
+}
+
+.community-involvement {
+    display: flex;
+    flex-direction: column;
+}
+
+.community-involvement>h2 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.invol-content>span {
+    color: #454f5e;
+}

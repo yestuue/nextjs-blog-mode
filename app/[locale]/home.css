@@ -1,0 +1,399 @@
+.home-image {
+    background-image: url(https://blackwealthcrypto.com/wp-content/uploads/2025/08/8machine-_-oWFZm4NAvMQ-unsplash-scaled.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.home-black {
+    padding: 0 8% 0 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-top: 20vh;
+}
+
+.home-black h2 {
+    color: white;
+    font-size: 47px;
+    font-weight: bold;
+}
+
+.home-black span {
+    color: white;
+    font-size: 15px;
+}
+
+.home-black-button {
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    gap: 20px;
+}
+
+.start-learning {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #6528f7;
+    padding: 13px 35px 13px 35px;
+    border-radius: 40px;
+    cursor: pointer;
+    color: #0f172a;
+    font-weight: 600;
+    transition: all .2s linear;
+}
+
+.start-learning:hover {
+    background-color: #5511f8;
+}
+
+.subscribe-now {
+    background-color: transparent;
+    padding: 15px 35px 15px 35px;
+    border-radius: 40px;
+    border: solid 2px white;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: all .2s linear;
+}
+
+.subscribe-now:hover {
+    background-color: #5511f8;
+    border: solid 2px #5511f8;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-first {
+    height: 60%;
+    padding: 10vh 8% 0 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-first>h2 {
+    font-size: 54px;
+    font-size: 3.375rem;
+    font-weight: 600;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    margin-top: -20px;
+}
+
+.welcome-first-sub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #57627d;
+}
+
+.welcome-first-sub-2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    gap: 40px;
+}
+
+.welcome-first-subscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-first-subscription>h2 {
+    font-size: 54px;
+    font-size: 3.175rem;
+    font-weight: 600;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    margin-bottom: 5px;
+}
+
+.welcome-first-subscription>span {
+    color: #57627d;
+}
+
+.welcome-second {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f0fe;
+}
+
+.welcome-second>svg {
+    width: 40px;
+
+}
+
+.welcome-second>span {
+    margin-top: 10px;
+    color: #454f5e;
+    font-size: 24px;
+}
+
+.welcome-second>h2 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #454f5e;
+    margin-top: 15px;
+}
+
+.wealth {
+    width: 100%;
+    padding: 100px 8% 0 8%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.wealth-image {
+    width: 50%;
+    height: 100%;
+}
+
+.wealth-image>img {
+    border-radius: 20px;
+    width: 550px;
+    margin-top: 50px;
+}
+
+.wealth-content {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-top: 50px;
+    padding-left: 4vw;
+}
+
+.our-mission {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.our-mission>svg {
+    width: 15px;
+}
+
+.wealth-content>h2 {
+    font-size: 47px;
+    font-weight: bold;
+}
+
+.wealth-content>.sub {
+    color: #454f5e;
+}
+
+.check {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.check-line {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.check-line>svg {
+    width: 17px;
+    fill: #5511f8;
+    transition: fill 0.3s;
+}
+
+.learn-more {
+    width: 180px;
+    padding: 15px 20px 15px 25px;
+    border-radius: 50px;
+    border: solid 2px black;
+    margin-top: 50px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.learn-more:hover {
+    background-color: #5511f8;
+    border-color: #5511f8;
+    transition: all .2s linear;
+}
+
+.learn-more>svg {
+    width: 13px;
+}
+
+.journey {
+    height: 80vh;
+    background-color: #f2f0fe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15vh;
+}
+
+.expact {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.expact>svg {
+    width: 15px;
+}
+
+.expact>h2 {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.journey-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.journey-text>h2 {
+    font-size: 54px;
+    font-size: 3.375rem;
+    font-weight: 600;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+}
+
+.boxs {
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    width: 90%;
+}
+
+.boxs>.box {
+    width: 280px;
+    height: 230px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.boxs>.box>svg {
+    width: 40px;
+}
+
+.boxs>.box>h2 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.2em;
+    font-weight: 600;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.boxs>.box>span {
+    color: #808285;
+    font-size: 14px;
+}
+
+.empowering {
+    background-color: #0f172a;
+    height: 100vh;
+    width: 100%;
+    gap: 80px;
+}
+
+.empowering-content {
+    padding: 0 8% 0 8%;
+    display: flex;
+    flex-direction: row;
+}
+
+.content-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.content-right {
+    width: 45%;
+    margin-left: 40px;
+}
+
+.why-us {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 8vh;
+}
+
+.why-us>svg {
+    width: 15px;
+    fill: white;
+}
+
+.content-left>.text {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.content-left>.description {
+    margin-top: 3vh;
+}
+
+.description>.content {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px #37424f;
+    padding-bottom: 30px;
+    margin-top: 3vh;
+}
+
+.description>.content>svg {
+    width: 30px;
+    fill: #6528f7;
+}
+
+.description>.content>h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.description>.content>span {
+    font-size: 15px;
+    color: #f0ffff;
+}
+
+.content-right>img {
+    margin-top: 8vh;
+    border-radius: 20px;
+}

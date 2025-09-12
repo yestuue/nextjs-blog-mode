@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply text-medium-gray bg-white antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-dark-gray font-bold;
+  }
+}
+
+@layer components {
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .max-container {
+    @apply max-w-7xl mx-auto container-padding;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-primary hover:bg-white/90;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-white text-white hover:bg-white/10;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden;
+  }
+
+  .card-glass {
+    @apply bg-white/60 backdrop-blur-glass rounded-xl shadow-glass;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-success-green;
+  }
+}
+  background-color: #d5dada;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 50px;
+  height: 100%;
+  padding-right: 2vw;
+  color: #1c244b;
+} */
+
+.navigation {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
+  background-color: rgba(35, 48, 48, 0.4);
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 50px;
+  height: 100%;
+  padding: 0 2vw;
+}
+
+
+.footer-image {
+  background-image: url("/assets/footer-bg.jpg");
+  height: 500px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+}
+
+.footer-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer-content>div>h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.footer-content>span {
+  font-size: 15px;
+  color: white;
+}
+
+.footer-content>.button {
+  width: max-content;
+  padding: 12px 20px;
+  background-color: #6528f7;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .2s linear;
+}
+
+.footer-content>.button:hover {
+  background-color: #5511f8;
+}
+
+.crypto-footer {
+  height: 500px;
+  width: 100%;
+
+}
+
+.crypto-content {
+  height: 430px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: #f2f0fe;
+  border-top: solid 1px #6528f7;
+  padding: 0 20% 0 20%;
+}
+
+.crypto-content-desc {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  margin-top: 5%;
+}
+
+.first-part {
+  display: flex;
+  flex-direction: column;
+  color: #454f5e;
+
+}
+
+.first-part>img {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.connect-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 4px;
+  color: #454f5e;
+}
+
+.second-part>h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.crypto-bottom {
+  height: 70px;
+  background-color: #f2f0fe;
+  border-top: solid 1px #eaeaea;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.crypto-bottom>h2 {
+  font-size: 16px;
+  color: #454f5e;
+}
+
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
