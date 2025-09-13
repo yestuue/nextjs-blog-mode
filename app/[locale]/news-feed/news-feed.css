@@ -46,7 +46,7 @@
 }
 
 .news-content>span {
-    display: flexbox;
+    display: flex;  /* Changed from 'flexbox' to 'flex' */
     font-size: 15px;
     font-weight: 500;
     color: #f0e5c9;

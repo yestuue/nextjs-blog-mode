@@ -14,9 +14,10 @@ interface Stat {
 
 export default function Page() {
   const t = useTranslations('homePage');
-  const { locale } = useParams();
-  
-  const stats = [
+  const params = useParams(); // Fixed: Get params properly
+  const locale = params?.locale as string; // Type assertion for locale
+     
+  const stats: Stat[] = [ // Fixed: Added explicit type annotation
     {
       value: '2%',
       label: 'of crypto investors identify as Black',
@@ -92,7 +93,7 @@ export default function Page() {
           <h2 className="text-4xl font-bold mb-6">{t('readyToTransform')}</h2>
           <p className="text-xl mb-8">{t('contactUs')}</p>
           <a
-            href="/contact"
+            href={`/${locale}/contact`} // Fixed: Use locale for proper routing
             className="inline-block px-8 py-4 bg-white text-[#4A90E2] rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
           >
             {t('getFreeQuote')}

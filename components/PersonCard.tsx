@@ -53,22 +53,42 @@ export default function PersonCard({
           {/* Social links */}
           <div className="flex items-center gap-3 mt-2">
             {website && (
-              <Link href={website} target="_blank" className="text-sm text-blue-600">
+              <Link 
+                href={website} 
+                target="_blank" 
+                rel="noopener noreferrer" // Fixed: Added security attributes
+                className="text-sm text-blue-600 hover:underline"
+              >
                 Website
               </Link>
             )}
             {youTube && (
-              <Link href={youTube} target="_blank" className="text-sm text-red-600">
+              <Link 
+                href={youTube} 
+                target="_blank" 
+                rel="noopener noreferrer" // Fixed: Added security attributes
+                className="text-sm text-red-600 hover:underline"
+              >
                 YouTube
               </Link>
             )}
             {twitter && (
-              <Link href={`https://twitter.com/${twitter.replace(/^@/, '')}`} target="_blank" className="text-sm text-blue-400">
+              <Link 
+                href={`https://twitter.com/${twitter.replace(/^@/, '')}`} 
+                target="_blank" 
+                rel="noopener noreferrer" // Fixed: Added security attributes
+                className="text-sm text-blue-400 hover:underline"
+              >
                 Twitter
               </Link>
             )}
             {instagram && (
-              <Link href={`https://instagram.com/${instagram.replace(/^@/, '')}`} target="_blank" className="text-sm text-pink-500">
+              <Link 
+                href={`https://instagram.com/${instagram.replace(/^@/, '')}`} 
+                target="_blank" 
+                rel="noopener noreferrer" // Fixed: Added security attributes
+                className="text-sm text-pink-500 hover:underline"
+              >
                 Instagram
               </Link>
             )}
@@ -80,8 +100,13 @@ export default function PersonCard({
           <div className="flex-shrink-0">
             <div
               className={`w-3 h-3 rounded-full ${
-                status === 'ready' ? 'bg-success-green' : status === 'busy' ? 'bg-red-500' : 'bg-yellow-500'
+                status === 'ready' 
+                  ? 'bg-success-green' 
+                  : status === 'busy' 
+                  ? 'bg-red-500' 
+                  : 'bg-yellow-500'
               }`}
+              title={`Status: ${status}`} // Fixed: Added accessibility title
             />
           </div>
         )}
