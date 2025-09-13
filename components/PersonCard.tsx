@@ -25,7 +25,7 @@ export default function PersonCard({
         {/* Content */}
         <div className="flex-grow">
           <h3 className="text-lg font-semibold text-dark-gray mb-1">{name}</h3>
-          <div className="flex items-center gap-2 text-medium-gray mb-2">
+          <div className="flex items-center gap-2 text-gray-500 mb-2">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -48,7 +48,7 @@ export default function PersonCard({
             <span className="text-sm">{location}</span>
           </div>
 
-          {description && <p className="text-sm text-medium-gray mb-2">{description}</p>}
+          {description && <p className="text-sm text-gray-500 mb-2">{description}</p>}
 
           {/* Social links */}
           <div className="flex items-center gap-3 mt-2">

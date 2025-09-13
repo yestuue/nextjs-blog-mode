@@ -52,7 +52,7 @@ export default function Page() {
       </section>
 
       {/* What to Expect Section */}
-      <section className="py-20 bg-[#F8F9FA]">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Learn, Grow, Connect Header */}
           <div className="text-center mb-12">
@@ -155,14 +155,26 @@ export default function Page() {
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center">
                 <div className="mb-4">
-                  <img 
-                    src={member.image} 
-                    alt={`${member.name}, ${member.role}`}
-                    className="w-32 h-32 rounded-full mx-auto object-cover mb-4"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/assets/placeholder-avatar.jpg';
-                    }}
-                  />
+                  <div className="w-32 h-32 bg-gradient-to-br from-[#4A90E2] to-[#2C3E50] rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <img 
+                      src={member.image} 
+                      alt={`${member.name}, ${member.role}`}
+                      className="w-32 h-32 rounded-full object-cover"
+                      onError={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.display = 'none';
+                        if (img.parentElement) {
+                          const placeholder = img.parentElement.querySelector('.placeholder-text') as HTMLElement;
+                          if (!placeholder) {
+                            const placeholderDiv = document.createElement('div');
+                            placeholderDiv.className = 'placeholder-text text-white text-lg font-semibold';
+                            placeholderDiv.textContent = member.name.split(' ').map(n => n[0]).join('');
+                            img.parentElement.appendChild(placeholderDiv);
+                          }
+                        }
+                      }}
+                    />
+                  </div>
                   <h3 className="text-xl font-bold text-[#2C3E50] mb-1">{member.name}</h3>
                   <p className="text-[#4A90E2] font-semibold mb-3">{member.role}</p>
                   <p className="text-[#6C757D] text-sm mb-4">{member.bio}</p>
@@ -185,18 +197,27 @@ export default function Page() {
       </section>
 
       {/* Community Section */}
-      <section className="py-20 bg-[#F8F9FA]">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <img 
-                src="/assets/community.jpg" 
-                alt="Community members collaborating and learning together" 
-                className="w-full h-96 object-cover rounded-lg shadow-lg"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/assets/placeholder-community.jpg';
-                }}
-              />
+              <div className="w-full h-96 bg-gradient-to-br from-[#4A90E2] to-[#2C3E50] rounded-lg flex items-center justify-center">
+                <img 
+                  src="/assets/community.jpg" 
+                  alt="Community members collaborating and learning together" 
+                  className="w-full h-96 object-cover rounded-lg shadow-lg"
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = 'none';
+                    if (img.parentElement) {
+                      const placeholder = document.createElement('div');
+                      placeholder.className = 'text-white text-xl font-semibold text-center';
+                      placeholder.textContent = 'Community Collaboration';
+                      img.parentElement.appendChild(placeholder);
+                    }
+                  }}
+                />
+              </div>
             </div>
             <div className="order-1 lg:order-2">
               <div className="flex items-center mb-4">
@@ -290,21 +311,23 @@ export default function Page() {
             </div>
             <div className="order-1 lg:order-2">
               <div className="aspect-w-16 aspect-h-12 bg-gray-200 rounded-lg overflow-hidden">
-                <img 
-                  src="/assets/bridge-image.jpg"
-                  alt="Bridge connecting communities to blockchain technology"
-                  className="w-full h-96 object-cover rounded-lg"
-                  onError={(e) => {
-                    const img = e.target as HTMLImageElement;
-                    if (img.parentElement) {
-                      img.parentElement.innerHTML = `
-                        <div class="w-full h-96 bg-gradient-to-br from-[#4A90E2] to-[#2C3E50] rounded-lg flex items-center justify-center">
-                          <span class="text-white text-xl font-semibold">Bridge to Digital Future</span>
-                        </div>
-                      `;
-                    }
-                  }}
-                />
+                <div className="w-full h-96 bg-gradient-to-br from-[#4A90E2] to-[#2C3E50] rounded-lg flex items-center justify-center">
+                  <img 
+                    src="/assets/bridge-image.jpg"
+                    alt="Bridge connecting communities to blockchain technology"
+                    className="w-full h-96 object-cover rounded-lg"
+                    onError={(e) => {
+                      const img = e.target as HTMLImageElement;
+                      img.style.display = 'none';
+                      if (img.parentElement) {
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'text-white text-xl font-semibold text-center';
+                        placeholder.textContent = 'Bridge to Digital Future';
+                        img.parentElement.appendChild(placeholder);
+                      }
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>

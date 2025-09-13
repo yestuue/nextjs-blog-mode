@@ -3,221 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply scroll-smooth;
-  }
-  body {
-    @apply text-medium-gray bg-white antialiased;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-dark-gray font-bold;
-  }
-}
-
-@layer components {
-  .container-padding {
-    @apply px-4 sm:px-6 lg:px-8;
-  }
-  
-  .max-container {
-    @apply max-w-7xl mx-auto container-padding;
-  }
-
-  .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors;
-  }
-
-  .btn-primary {
-    @apply btn bg-primary text-white hover:bg-primary/90;
-  }
-
-  .btn-secondary {
-    @apply btn bg-white text-primary hover:bg-white/90;
-  }
-
-  .btn-outline {
-    @apply btn border-2 border-white text-white hover:bg-white/10;
-  }
-
-  .card {
-    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden;
-  }
-
-  .card-glass {
-    @apply bg-white/60 backdrop-blur-glass rounded-xl shadow-glass;
-  }
-}
-
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-success-green;
-  }
-}
-
-/* Removed orphaned background-color and closing brace */
-
-.navigation {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 1000;
-  background-color: rgba(35, 48, 48, 0.4);
-  color: white;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 50px;
-  height: 100%;
-  padding: 0 2vw;
-}
-
-.navigation {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 1000;
-  background-color: rgba(35, 48, 48, 0.4);
-  color: white;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 50px;
-  height: 100%;
-  padding: 0 2vw;
-}
-
-
-.footer-image {
-  background-image: url("/assets/footer-bg.jpg");
-  height: 500px;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  align-items: center;
-}
-
-.footer-content {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.footer-content>div>h2 {
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-
-.footer-content>span {
-  font-size: 15px;
-  color: white;
-}
-
-.footer-content>.button {
-  width: max-content;
-  padding: 12px 20px;
-  background-color: #6528f7;
-  color: white;
-  font-weight: bold;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all .2s linear;
-}
-
-.footer-content>.button:hover {
-  background-color: #5511f8;
-}
-
-.crypto-footer {
-  height: 500px;
-  width: 100%;
-
-}
-
-.crypto-content {
-  height: 430px;
-  width: 100%;
-  margin-top: 30px;
-  background-color: #f2f0fe;
-  border-top: solid 1px #6528f7;
-  padding: 0 20% 0 20%;
-}
-
-.crypto-content-desc {
-  width: 60%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 50px;
-  margin-top: 5%;
-}
-
-.first-part {
-  display: flex;
-  flex-direction: column;
-  color: #454f5e;
-
-}
-
-.first-part>img {
-  width: 300px;
-  margin-bottom: 20px;
-}
-
-.connect-header {
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  gap: 4px;
-  color: #454f5e;
-}
-
-.second-part>h2 {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.crypto-bottom {
-  height: 70px;
-  background-color: #f2f0fe;
-  border-top: solid 1px #eaeaea;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.crypto-bottom>h2 {
-  font-size: 16px;
-  color: #454f5e;
-}
-
-
-
-@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -272,16 +57,196 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
+  html {
+    @apply scroll-smooth;
+  }
 
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 
-@layer base {
   * {
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-500 font-bold;
   }
+}
+
+@layer components {
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .max-container {
+    @apply max-w-7xl mx-auto container-padding;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/90;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary hover:bg-primary/10;
+  }
+
+  .card {
+    @apply bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden;
+  }
+
+  .card-glass {
+    @apply bg-white/60 backdrop-blur-sm rounded-xl shadow-lg;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}
+
+/* Custom Navigation Styles */
+.navigation {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
+  background-color: rgba(35, 48, 48, 0.4);
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 50px;
+  height: 100%;
+  padding: 0 2vw;
+}
+
+/* Footer Styles */
+.footer-image {
+  background-image: url("/assets/footer-bg.jpg");
+  height: 500px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+}
+
+.footer-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer-content > div > h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.footer-content > span {
+  font-size: 15px;
+  color: white;
+}
+
+.footer-content > .button {
+  width: max-content;
+  padding: 12px 20px;
+  background-color: #6528f7;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.footer-content > .button:hover {
+  background-color: #5511f8;
+}
+
+/* Crypto Footer Styles */
+.crypto-footer {
+  height: 500px;
+  width: 100%;
+}
+
+.crypto-content {
+  height: 430px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: #f2f0fe;
+  border-top: solid 1px #6528f7;
+  padding: 0 20% 0 20%;
+}
+
+.crypto-content-desc {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  margin-top: 5%;
+}
+
+.first-part {
+  display: flex;
+  flex-direction: column;
+  color: #454f5e;
+}
+
+.first-part > img {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.connect-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 4px;
+  color: #454f5e;
+}
+
+.second-part > h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.crypto-bottom {
+  height: 70px;
+  background-color: #f2f0fe;
+  border-top: solid 1px #eaeaea;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.crypto-bottom > h2 {
+  font-size: 16px;
+  color: #454f5e;
 }
