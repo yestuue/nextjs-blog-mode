@@ -1,13 +1,21 @@
-interface Person {
-  name: string;
-  emoji: string;
-  location: string;
-  status?: 'ready' | 'busy' | 'away';
-}
+import Link from 'next/link';
+import { Person } from '@/types/person';
 
-export default function PersonCard({ name, emoji, location, status }: Person) {
+type Props = Person;
+
+export default function PersonCard({
+  name,
+  emoji,
+  location,
+  status,
+  youTube,
+  twitter,
+  instagram,
+  website,
+  description,
+}: Props) {
   return (
-    <div className="card p-6 hover:translate-y-[-4px] transition-all duration-300">
+    <div className="card p-6 hover:-translate-y-1 transition-all duration-300">
       <div className="flex items-start gap-4">
         {/* Emoji Avatar */}
         <div className="flex-shrink-0 w-12 h-12 bg-light-gray rounded-full flex items-center justify-center text-2xl">
@@ -17,7 +25,7 @@ export default function PersonCard({ name, emoji, location, status }: Person) {
         {/* Content */}
         <div className="flex-grow">
           <h3 className="text-lg font-semibold text-dark-gray mb-1">{name}</h3>
-          <div className="flex items-center gap-2 text-medium-gray">
+          <div className="flex items-center gap-2 text-medium-gray mb-2">
             <svg
               className="w-4 h-4"
               fill="none"
@@ -39,6 +47,32 @@ export default function PersonCard({ name, emoji, location, status }: Person) {
             </svg>
             <span className="text-sm">{location}</span>
           </div>
+
+          {description && <p className="text-sm text-medium-gray mb-2">{description}</p>}
+
+          {/* Social links */}
+          <div className="flex items-center gap-3 mt-2">
+            {website && (
+              <Link href={website} target="_blank" className="text-sm text-blue-600">
+                Website
+              </Link>
+            )}
+            {youTube && (
+              <Link href={youTube} target="_blank" className="text-sm text-red-600">
+                YouTube
+              </Link>
+            )}
+            {twitter && (
+              <Link href={`https://twitter.com/${twitter.replace(/^@/, '')}`} target="_blank" className="text-sm text-blue-400">
+                Twitter
+              </Link>
+            )}
+            {instagram && (
+              <Link href={`https://instagram.com/${instagram.replace(/^@/, '')}`} target="_blank" className="text-sm text-pink-500">
+                Instagram
+              </Link>
+            )}
+          </div>
         </div>
 
         {/* Status Indicator */}
@@ -46,11 +80,7 @@ export default function PersonCard({ name, emoji, location, status }: Person) {
           <div className="flex-shrink-0">
             <div
               className={`w-3 h-3 rounded-full ${
-                status === 'ready'
-                  ? 'bg-success-green'
-                  : status === 'busy'
-                  ? 'bg-red-500'
-                  : 'bg-yellow-500'
+                status === 'ready' ? 'bg-success-green' : status === 'busy' ? 'bg-red-500' : 'bg-yellow-500'
               }`}
             />
           </div>

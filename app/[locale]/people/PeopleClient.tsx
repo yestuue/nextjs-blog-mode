@@ -105,16 +105,17 @@ export default function PeopleClient({ people = [] }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayPeople.map((person) => (
               <PersonCard
-  key={person.id}
-  name={person.name}
-  emoji={person.emoji}
-  location={person.location}
-  status={person.status}
-  youTube={person.youTube}
-  twitter={person.twitter}
-  instagram={person.instagram}
-  website={person.website}
-/>
+                key={person.id}
+                name={person.name}
+                emoji={person.emoji}
+                location={person.location}
+                status={person.status}
+                youTube={person.youTube}
+                twitter={person.twitter}
+                instagram={person.instagram}
+                website={person.website}
+                description={person.description} // Fixed: Added missing description prop
+              />
             ))}
           </div>
         </div>

@@ -17,7 +17,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { post } = await getPostAndMorePosts(params.slug, isEnabled);
 
   if (!post) return { title: 'Not Found' };
@@ -42,7 +42,8 @@ export async function generateMetadata({ params }: Props) {
 
 export async function generateStaticParams() {
   const response = await getPostAndMorePosts('', false);
-  return response.morePosts.map((post) => ({
+  const posts = response?.morePosts ?? [];
+  return posts.map((post: any) => ({
     slug: post.fields.slug,
   }));
 }
@@ -67,10 +68,13 @@ const richTextOptions = {
 };
 
 export default async function BlogDetailPage({ params }: Props) {
-  const { isEnabled } = draftMode();
+  const draft = await draftMode(); // Fixed: await the draftMode() call
+  const isEnabled = draft?.isEnabled ?? false;
   const { post, morePosts } = await getPostAndMorePosts(params.slug, isEnabled);
   const { locale } = params;
 
+  // Removed unused useTranslations hook since this is a server component
+  
   if (!post) return notFound();
 
   return (
@@ -112,7 +116,6 @@ export default async function BlogDetailPage({ params }: Props) {
           {documentToReactComponents(post.fields.content, richTextOptions)}
         </div>
       </div>
-          </article>
-        );
-      }
-
+    </article>
+  );
+}
