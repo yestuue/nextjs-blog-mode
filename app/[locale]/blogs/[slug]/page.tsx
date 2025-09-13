@@ -1,23 +1,24 @@
-// app/[locale]/blogs/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-type PageProps = {
+// Next.js expects `params` to be just a plain object
+interface BlogPageProps {
   params: {
     locale: string;
     slug: string;
   };
-};
+}
 
-// Example: Generate metadata per blog
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+// Metadata generation
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
   const { slug, locale } = params;
   return {
     title: `Blog: ${slug} | ${locale.toUpperCase()}`,
   };
 }
 
-export default async function BlogPage({ params }: PageProps) {
+// Page component
+export default async function BlogPage({ params }: BlogPageProps) {
   const { slug, locale } = params;
 
   // Example: simulate fetching data for this slug
@@ -37,9 +38,10 @@ export default async function BlogPage({ params }: PageProps) {
 }
 
 // Generate static params for SSG
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<BlogPageProps["params"][]> {
   return [
     { locale: "en", slug: "demo-blog" },
     { locale: "fr", slug: "exemple-blog" },
   ];
 }
+// Note: In a real app, fetch available slugs from a CMS or database
