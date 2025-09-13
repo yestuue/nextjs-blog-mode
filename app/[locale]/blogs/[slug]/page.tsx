@@ -1,121 +1,45 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { draftMode } from 'next/headers';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { useTranslations } from 'next-intl';
-import { getPostAndMorePosts } from '@/lib/api';
-import { formatDate } from '@/lib/utils';
-import "./slug.css";
+// app/[locale]/blogs/[slug]/page.tsx
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
-interface Props {
+type PageProps = {
   params: {
-    slug: string;
     locale: string;
+    slug: string;
   };
-}
-
-export async function generateMetadata({ params }: Props) {
-  const { isEnabled } = await draftMode();
-  const { post } = await getPostAndMorePosts(params.slug, isEnabled);
-
-  if (!post) return { title: 'Not Found' };
-
-  return {
-    title: post.fields.title,
-    description: post.fields.excerpt || post.fields.title,
-    openGraph: {
-      title: post.fields.title,
-      description: post.fields.excerpt || post.fields.title,
-      images: [
-        {
-          url: post.fields.featuredImage?.fields.file.url || '',
-          width: 1200,
-          height: 630,
-          alt: post.fields.title,
-        },
-      ],
-    },
-  };
-}
-
-export async function generateStaticParams() {
-  const response = await getPostAndMorePosts('', false);
-  const posts = response?.morePosts ?? [];
-  return posts.map((post: any) => ({
-    slug: post.fields.slug,
-  }));
-}
-
-const richTextOptions = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
-      <Image
-        src={`https:${node.data.target.fields.file.url}`}
-        alt={node.data.target.fields.description || ''}
-        width={node.data.target.fields.file.details.image.width}
-        height={node.data.target.fields.file.details.image.height}
-        className="my-8 rounded-lg shadow-md"
-      />
-    ),
-  },
-  renderMark: {
-    [MARKS.CODE]: (text: string) => (
-      <code className="bg-gray-100 rounded px-2 py-1 font-mono text-sm">{text}</code>
-    ),
-  },
 };
 
-export default async function BlogDetailPage({ params }: Props) {
-  const draft = await draftMode(); // Fixed: await the draftMode() call
-  const isEnabled = draft?.isEnabled ?? false;
-  const { post, morePosts } = await getPostAndMorePosts(params.slug, isEnabled);
-  const { locale } = params;
+// Example: Generate metadata per blog
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug, locale } = params;
+  return {
+    title: `Blog: ${slug} | ${locale.toUpperCase()}`,
+  };
+}
 
-  // Removed unused useTranslations hook since this is a server component
-  
-  if (!post) return notFound();
+export default async function BlogPage({ params }: PageProps) {
+  const { slug, locale } = params;
+
+  // Example: simulate fetching data for this slug
+  const blog = { title: "Demo Blog", content: "Hello world content" };
+
+  if (!blog) {
+    notFound();
+  }
 
   return (
-    <article className="post-container">
-      <div className="post-container-details">
-        <div className="mb-8">
-          {post.fields.featuredImage && (
-            <Image
-              src={`https:${post.fields.featuredImage.fields.file.url}`}
-              alt={post.fields.title}
-              width={1200}
-              height={630}
-              className="w-full rounded-lg shadow-lg"
-              priority
-            />
-          )}
-        </div>
-        <h1 className="text-4xl font-bold mb-4">{post.fields.title}</h1>
-        {post.fields.author && (
-          <div className="flex items-center mb-6">
-            {post.fields.author.fields.picture && (
-              <Image
-                src={`https:${post.fields.author.fields.picture.fields.file.url}`}
-                alt={post.fields.author.fields.name}
-                width={40}
-                height={40}
-                className="rounded-full mr-4"
-              />
-            )}
-            <div>
-              <p className="font-semibold">{post.fields.author.fields.name}</p>
-              <p className="text-gray-600 text-sm">
-                {formatDate(post.fields.publishedDate)}
-              </p>
-            </div>
-          </div>
-        )}
-        <div className="prose prose-lg max-w-none">
-          {documentToReactComponents(post.fields.content, richTextOptions)}
-        </div>
-      </div>
+    <article className="prose max-w-3xl mx-auto p-6">
+      <h1 className="text-4xl font-bold text-dark-gray">{blog.title}</h1>
+      <p className="text-medium-gray mt-4">{blog.content}</p>
+      <p className="text-sm text-light-gray mt-8">Locale: {locale}</p>
     </article>
   );
+}
+
+// Generate static params for SSG
+export async function generateStaticParams() {
+  return [
+    { locale: "en", slug: "demo-blog" },
+    { locale: "fr", slug: "exemple-blog" },
+  ];
 }
